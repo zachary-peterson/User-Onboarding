@@ -5,12 +5,22 @@ const formSchema = yup.object().shape({
     .string()
     .min(3, "First name must be at least 5 characters")
     .required("First name is Required"),
-  role: yup
+  last_name: yup
     .string()
-    .oneOf(['tl', 'instructor', 'alumni', 'student'], "Role is required"),
-  civil: yup
+    .min(3, "Last name must be at least 5 characters")
+    .required("Last name is Required"),
+  username: yup
     .string()
-    .oneOf(['married', 'single'], "Civil status is required")
+    .min(5, "Username must be valid")
+    .required("Username is required"),
+  email: yup
+    .string()
+    .min(5, "Email must be valid")
+    .required("Email is required"),
+  password: yup
+    .string()
+    .min(8, "Password must be valid")
+    .required("Password is required"),
 })
 
 export default formSchema
