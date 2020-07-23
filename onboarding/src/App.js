@@ -117,7 +117,7 @@ const inputChange = (name, value) => {
     .catch(err => {
       setFormErrors({
         ...formErrors,
-        [name]: err.errors[0],
+        [name]: err.errors[0]
       })
     })
 

@@ -7,6 +7,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   background-color: black;
+  border: solid 4px #FFFFFF;
   color: white;
   padding: 2%;
 
