@@ -87,24 +87,11 @@ function App() {
       setTeamMembers(suc.data.data)
     })
     .catch(err => {
-      console.log(err)
+      console.dir(err)
     })
  };
 
- const postNewMember = newTeamMember => {
-  axios.post(apiURL, newTeamMember)
-    .then(suc => {
-      debugger
-      console.log(suc.data)
-      setTeamMembers([suc.data, ...teamMembers])
-      setFormValues(initialFormValues)
-    })
-    .catch(err => {
-      debugger
-    })
-};
-
-const inputChange = (name, value) => {
+ const inputChange = (name, value) => {
   yup
     .reach(formSchema, name)
     .validate(value)
@@ -127,9 +114,19 @@ const inputChange = (name, value) => {
   })
 };
 
-  
+ const postNewMember = newTeamMember => {
+  axios.post(apiURL, newTeamMember)
+    .then(suc => {
+      debugger
+      // console.log(suc.data)
+      setTeamMembers([suc.data, ...teamMembers])
+      setFormValues(initialFormValues)
+    })
+    .catch(err => {
+      debugger
+    })
+};
 
-  console.log(teamMembers);
 
   const submit = () => {
     const newTeamMember = {
@@ -172,7 +169,7 @@ const inputChange = (name, value) => {
       {
         teamMembers.map(mem => {
           return (
-            <div key={mem.id}>
+            <div className={mem['first_name']} key={mem.id}>
               <p><strong>Member Name:</strong> {mem['first_name']} {mem['last_name']}</p>
               <p><strong>Member Username:</strong> {mem['username']}</p>
               <p><strong>Member Email:</strong> {mem['email']}</p>

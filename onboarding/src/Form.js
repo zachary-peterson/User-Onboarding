@@ -9,10 +9,10 @@ const StyledButton = styled.button`
       border: white;
 
       &:disabled  {
-        display: none;
+        background-color: grey;
 
         &:hover  {
-          background-color: black;
+          background-color: grey;
         }
       }
 
@@ -91,7 +91,7 @@ function Form(props) {
       inputChange(name, value)
     }
 
-    console.log(values);
+    // console.log(values);
 
     const onCheckboxChange = evt => {
       const { name, checked } = evt.target
@@ -185,6 +185,7 @@ function Form(props) {
         <input
           label="I accept the Terms and Conditions"
           type="checkbox"
+          id='terms_check'
           required
           name='terms'
           checked={values.terms === true}
@@ -193,9 +194,7 @@ function Form(props) {
         />
         </label>
 
-        <p disabled={!disabled}>Submit button will appear when all required fields are met.</p>
-
-        <StyledButton disabled={disabled}>Submit</StyledButton>
+        <StyledButton id='submit' disabled={disabled}>Submit</StyledButton>
         </form>
     </StyledDiv>
     )
