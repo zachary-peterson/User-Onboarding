@@ -11,7 +11,7 @@ const StyledDiv = styled.div`
   padding: 2%;
 
   div {
-    color: #39ece1;
+    color: #ffe700;
   }
 
   form {
@@ -40,9 +40,6 @@ const StyledDiv = styled.div`
     }
   }
 
-  .error {
-    color: red;
-  }
 `
 
 function Form(props) {

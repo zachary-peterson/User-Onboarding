@@ -13,7 +13,7 @@ const AppDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #761c22;
+  background-color: #1c4e76;
   overflow: hidden;
 `;
 
