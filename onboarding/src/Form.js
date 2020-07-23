@@ -68,11 +68,11 @@ const StyledDiv = styled.div`
     flex-direction: column;
 
     label, input  {
-      margin: .5% 0;
+      margin: .5%;
     }
 
     .cent  {
-      margin: 2% auto;
+      margin: 2% 2%;
     }
   }
 
@@ -181,8 +181,9 @@ function Form(props) {
         />
         <div className='errors'>{errors['password_two']}</div>
 
-        <label htmlFor='terms'><a href='http://legalipsum.com/?count=13' target='_blank'>Terms and Condtions:</a></label>
+        <label htmlFor='terms'> I accept the <a href='http://legalipsum.com/?count=13' target='_blank'>Terms and Condtions:</a>
         <input
+          label="I accept the Terms and Conditions"
           type="checkbox"
           required
           name='terms'
@@ -190,6 +191,7 @@ function Form(props) {
           onChange={onCheckboxChange}
           className="cent"
         />
+        </label>
 
         <p disabled={!disabled}>Submit button will appear when all required fields are met.</p>
 
