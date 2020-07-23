@@ -173,10 +173,10 @@ const inputChange = (name, value) => {
         teamMembers.map(mem => {
           return (
             <div key={mem.id}>
-              <p><strong>Member Name:</strong>     {mem['first_name']} {mem['last_name']}</p>
-              <p><strong>Member Username:</strong>     {mem['username']}</p>
-              <p><strong>Member Email:</strong>     {mem['email']}</p>
-              <p><strong>Member ID:</strong>     {mem.id}</p>
+              <p><strong>Member Name:</strong> {mem['first_name']} {mem['last_name']}</p>
+              <p><strong>Member Username:</strong> {mem['username']}</p>
+              <p><strong>Member Email:</strong> {mem['email']}</p>
+              <p><strong>Member ID:</strong> {mem.id}</p>
             </div>
           )
         })

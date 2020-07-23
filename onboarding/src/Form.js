@@ -1,6 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const StyledButton = styled.button`
+      padding: 2%;
+      background-color: #cc333e;
+      color: white;
+      font-size: 1.25rem;
+      border: white;
+
+      &:disabled  {
+        display: none;
+
+        &:hover  {
+          background-color: black;
+        }
+      }
+
+      &:hover  {
+        background-color: #ee505a;
+      }
+    
+`
+
 const StyledDiv = styled.div`
   width: 50%;
   margin: 0 5%;
@@ -10,6 +31,31 @@ const StyledDiv = styled.div`
   border: solid 4px #FFFFFF;
   color: white;
   padding: 2%;
+
+  h1  {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    color: #ffe700;
+  }
+
+  a {
+    color: white;
+
+    &:hover  {
+      font-style: italic;
+    }
+  }
+
+  p {
+    color: #ffe700;
+    position: relative;
+
+    &:disabled {
+      position: absolute;
+      color: black;
+      display: none;
+    }
+  }
 
   div {
     color: #ffe700;
@@ -23,17 +69,6 @@ const StyledDiv = styled.div`
 
     label, input  {
       margin: .5% 0;
-    }
-
-    button  {
-      padding: 2%;
-      background-color: #cc333e;
-      color: white;
-      font-size: 1.25rem;
-
-      &:hover  {
-        background-color: #ee505a;
-      }
     }
 
     .cent  {
@@ -146,7 +181,7 @@ function Form(props) {
         />
         <div className='errors'>{errors['password_two']}</div>
 
-        <label htmlFor='terms'>Terms and Condtions:</label>
+        <label htmlFor='terms'><a href='http://legalipsum.com/?count=13' target='_blank'>Terms and Condtions:</a></label>
         <input
           type="checkbox"
           required
@@ -156,7 +191,9 @@ function Form(props) {
           className="cent"
         />
 
-        <button disabled={disabled}>Submit</button>
+        <p disabled={!disabled}>Submit button will appear when all required fields are met.</p>
+
+        <StyledButton disabled={disabled}>Submit</StyledButton>
         </form>
     </StyledDiv>
     )
