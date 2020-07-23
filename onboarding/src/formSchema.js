@@ -1,19 +1,19 @@
 import * as yup from 'yup'
 
-function equalTo(ref, msg) {
-	return this.test({
-    name: 'equalTo',
-    msg: msg || "Passwords must match!",
-		params: {
-			reference: ref.path
-		},
-		test: function(value) {
-      return value === this.resolve(ref) 
-		}
-	})
-};
+// function equalTo(ref, msg) {
+// 	return this.test({
+//     name: 'equalTo',
+//     msg: msg || "Passwords must match!",
+// 		params: {
+// 			reference: ref.path
+// 		},
+// 		test: function(value) {
+//       return value === this.resolve(ref) 
+// 		}
+// 	})
+// };
 
-yup.addMethod(yup.string, 'equalTo', equalTo);
+// yup.addMethod(yup.string, 'equalTo', equalTo);
 
 const formSchema = yup.object().shape({
   first_name: yup
@@ -40,7 +40,7 @@ const formSchema = yup.object().shape({
     .string()
     .min(8, "Passwords must match!")
     .required("Password is required")
-    .equalTo(yup.ref('password'), "Passwords must match"),
+    .oneOf([yup.ref('password'), null], 'Passwords must match!'),
   terms: yup
     .string()
     .required("Must agree to Terms and Condtions")

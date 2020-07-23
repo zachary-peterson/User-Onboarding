@@ -96,10 +96,7 @@ function App() {
     .reach(formSchema, name)
     .validate(value)
     .then(valid => {
-      setFormErrors({
-        ...formErrors,
-        [name]: "",
-      })
+      setFormErrors(initialErrorMessages)
     })
     .catch(err => {
       setFormErrors({
